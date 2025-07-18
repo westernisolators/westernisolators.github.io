@@ -1,3 +1,9 @@
+import centerBondedMountImage from '../assets/center-bounded-mount.png';
+import platformMountImage from '../assets/platform-mount.png';
+import shearMountImage from '../assets/shear-mount.png';
+import antiVibrationBushingImage from '../assets/anti-vibration-bushings.png';
+import bumperVibrationImage from '../assets/bumper-vibration-dampener.png';
+
 export interface ProductSpec {
   parameter: string;
   value: string;
@@ -30,7 +36,7 @@ export const productCategories: ProductCategory[] = [
     id: 'center-bonded',
     name: 'Center Bonded Rubber Mounts',
     description: 'Premium center bonded rubber mounts engineered for superior vibration isolation across diverse industrial applications. Our precision-manufactured mounts deliver optimal performance and reliability.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: centerBondedMountImage,
     subProducts: [
       {
         id: 'one-piece',
@@ -122,7 +128,7 @@ export const productCategories: ProductCategory[] = [
     id: 'platform-anti-vibration',
     name: 'Platform Anti-Vibration Mounts',
     description: 'Heavy-duty platform mounts designed for large equipment requiring stable, level mounting surfaces with superior vibration control.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: platformMountImage,
     specs: [
       { parameter: 'Load Range', value: '500-10000', unit: 'lbs' },
       { parameter: 'Platform Size', value: '6x6-24x24', unit: 'in' },
@@ -141,7 +147,7 @@ export const productCategories: ProductCategory[] = [
     id: 'shear-rubber',
     name: 'Shear Rubber Mounts',
     description: 'High-performance shear mounts providing exceptional horizontal and vertical vibration control for critical infrastructure applications.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: shearMountImage,
     specs: [
       { parameter: 'Load Range', value: '100-5000', unit: 'lbs' },
       { parameter: 'Shear Stiffness', value: '500-8000', unit: 'lbs/in' },
@@ -160,7 +166,7 @@ export const productCategories: ProductCategory[] = [
     id: 'anti-vibration-bushings',
     name: 'Anti-Vibration Bushings',
     description: 'Precision-engineered bushings for superior rotational and linear motion isolation in advanced mechanical systems.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: antiVibrationBushingImage,
     specs: [
       { parameter: 'Bore Range', value: '0.25-6', unit: 'in' },
       { parameter: 'OD Range', value: '0.5-12', unit: 'in' },
@@ -179,7 +185,7 @@ export const productCategories: ProductCategory[] = [
     id: 'bumper-vibration',
     name: 'Bumper Vibration Dampeners',
     description: 'Specialized dampening solutions for impact absorption and vibration control in mobile applications.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: bumperVibrationImage,
     specs: [
       { parameter: 'Load Range', value: '50-2000', unit: 'lbs' },
       { parameter: 'Travel', value: '0.5-4', unit: 'in' },

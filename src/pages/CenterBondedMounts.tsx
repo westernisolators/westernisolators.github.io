@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import centerBondedMountImage from '../assets/center-bounded-mount.png';
 
 const CenterBondedMounts = () => {
   const fadeInUp = {
@@ -21,25 +22,25 @@ const CenterBondedMounts = () => {
     {
       id: 'one-piece',
       name: 'One Piece',
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=200&fit=crop',
+      image: centerBondedMountImage,
       description: 'One-piece mount designed for high load carrying capacity with multi-directional resiliency.'
     },
     {
       id: 'two-piece',
       name: 'Two Piece', 
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=300&h=200&fit=crop',
+      image: centerBondedMountImage,
       description: 'Two-piece mounts are used for heavy-duty applications such as compressors, pumps, and HVAC equipment.'
     },
     {
       id: 'three-piece',
       name: 'Three Piece',
-      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=300&h=200&fit=crop',
+      image: centerBondedMountImage,
       description: 'Three-piece design provides enhanced support and better dampening characteristics.'
     },
     {
       id: 'combination',
       name: 'Combination',
-      image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=300&h=200&fit=crop',
+      image: centerBondedMountImage,
       description: 'Combination mounts are used when you cannot find the performance you need in one of the above.'
     }
   ];
