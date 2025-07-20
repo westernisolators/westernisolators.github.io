@@ -3,6 +3,9 @@ import platformMountImage from '../assets/platform-mount.png';
 import shearMountImage from '../assets/shear-mount.png';
 import antiVibrationBushingImage from '../assets/anti-vibration-bushings.png';
 import bumperVibrationImage from '../assets/bumper-vibration-dampener.png';
+import cylindricalVibrationImage from '../assets/cylindrical-vibration-isolator.png';
+import torsionalVibrationImage from '../assets/torsional-vibration-isolator.png';
+import compressorPlugImage from '../assets/compressor-plug-isolator.png';
 
 export interface ProductSpec {
   parameter: string;
@@ -204,7 +207,7 @@ export const productCategories: ProductCategory[] = [
     id: 'cylindrical-vibration',
     name: 'Cylindrical Vibration Isolators',
     description: 'Cylindrical design isolators providing uniform radial stiffness for omnidirectional vibration control.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: cylindricalVibrationImage,
     specs: [
       { parameter: 'Load Range', value: '25-1500', unit: 'lbs' },
       { parameter: 'Diameter', value: '1-8', unit: 'in' },
@@ -223,7 +226,7 @@ export const productCategories: ProductCategory[] = [
     id: 'torsional-vibration',
     name: 'Torsional Vibration Isolators',
     description: 'Specialized isolators designed to control torsional vibrations in rotating machinery and drive systems.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: torsionalVibrationImage,
     specs: [
       { parameter: 'Torque Range', value: '10-5000', unit: 'lb-ft' },
       { parameter: 'Torsional Stiffness', value: '100-10000', unit: 'lb-ft/rad' },
@@ -242,7 +245,7 @@ export const productCategories: ProductCategory[] = [
     id: 'compressor-plug',
     name: 'Compressor Plug Isolator',
     description: 'Specialized plug-style isolators designed specifically for compressor applications and similar equipment.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop',
+    image: compressorPlugImage,
     specs: [
       { parameter: 'Thread Size', value: 'M8-M20', unit: '' },
       { parameter: 'Load Range', value: '20-800', unit: 'lbs' },
