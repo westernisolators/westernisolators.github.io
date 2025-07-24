@@ -1,34 +1,35 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, MapPin, Users, Shield, Zap, BarChart3, Globe, Star } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { productCategories } from '../data/products';
+import { products } from '../data/products';
 
 interface ContactFormData {
   name: string;
   email: string;
+  company: string;
   message: string;
 }
 
 const Home = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
   
-  const onSubmit = (data: ContactFormData) => {
-    console.log('Contact form submitted:', data);
+  const onSubmit = (_data: ContactFormData) => {
+    // TODO: Implement actual form submission logic
     alert('Thank you for your message! We will get back to you soon.');
     reset();
   };
 
   const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }
   };
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -45,152 +46,115 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-neutral-50">
+      {/* Hero Section - Clean & Modern */}
       <section id="home" className="relative min-h-screen flex items-center bg-white">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-neutral-50 opacity-60"></div>
+        <div className="absolute inset-0 gradient-bg-primary opacity-40"></div>
         
-        {/* Main Content */}
         <div className="container-max w-full relative z-10">
           <div className="flex items-center justify-center min-h-screen py-20">
-            {/* Main Content */}
             <motion.div 
-              className="max-w-4xl mx-auto text-center space-y-8 lg:space-y-12"
-              initial={{ opacity: 0, y: 60 }}
+              className="max-w-5xl mx-auto text-center space-y-8"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              {/* Badge */}
+              {/* Modern Badge */}
               <motion.div 
-                className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-full text-sm font-semibold shadow-lg"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Next-Generation Vibration Control
+                Industry-Leading Vibration Control Solutions
               </motion.div>
 
-              {/* Headline */}
+              {/* Clean Headline */}
               <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-neutral-900 leading-[1.1] tracking-tight"
+                className="text-display text-neutral-900 mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Western Isolators:{' '}
-                <span className="text-primary-700">
-                  Precision Engineered
-                </span>{' '}
-                Vibration Solutions
+                Precision Engineered
+                <span className="text-primary-600 block">Vibration Isolation</span>
               </motion.h1>
 
-              {/* Subtitle */}
-              <motion.p
-                className="text-xl text-neutral-700 max-w-3xl mx-auto leading-relaxed font-medium"
-                initial={{ opacity: 0, y: 30 }}
+              {/* Cleaner Description */}
+              <motion.p 
+                className="text-body-large text-neutral-600 max-w-3xl mx-auto mb-12"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                Western Isolators specializes in manufacturing premium rubber isolation mounts, spring isolators, and custom vibration control systems. We engineer advanced solutions to protect critical equipment and ensure optimal performance in demanding industrial environments.
+                Western Isolators delivers cutting-edge vibration isolation solutions for industrial applications. 
+                Our precision-manufactured mounts ensure optimal performance, reliability, and equipment longevity.
               </motion.p>
 
-              {/* Key Points */}
-              <motion.div
-                className="max-w-2xl mx-auto space-y-4"
-                initial={{ opacity: 0, y: 30 }}
+              {/* Feature Highlights */}
+              <motion.div 
+                className="flex flex-wrap justify-center gap-6 mb-12"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
+                transition={{ duration: 0.8, delay: 1 }}
               >
                 {[
-                  "Advanced engineering for innovative applications",
-                  "State-of-the-art manufacturing technology",
-                  "Rigorous testing and quality assurance protocols"
-                ].map((point, index) => (
-                  <div key={index} className="flex items-center justify-center space-x-3">
-                    <div className="w-5 h-5 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-neutral-700 font-medium text-center">{point}</span>
+                  "99% Vibration Reduction",
+                  "24/7 Expert Support",
+                  "Custom Engineering"
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                    <CheckCircle className="w-5 h-5 text-primary-600" />
+                    <span className="text-neutral-700 font-medium">{feature}</span>
                   </div>
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
+              {/* Modern CTA Buttons */}
               <motion.div 
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
               >
                 <button
                   onClick={() => scrollToSection('products')}
-                  className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 inline-flex items-center justify-center group shadow-lg hover:shadow-xl"
+                  className="btn-primary group w-full sm:w-auto min-w-[180px]"
                 >
-                  View Our Products
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 transition-transform duration-300 ease-out" />
+                  Explore Products
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white border-2 border-primary-600 text-primary-700 hover:bg-primary-50 font-semibold py-4 px-8 rounded-lg transition-all duration-200"
+                  className="btn-secondary w-full sm:w-auto min-w-[180px]"
                 >
-                  Get Custom Quote
+                  Contact US
                 </button>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div 
-                className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8 border-t border-neutral-200 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-              >
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-neutral-900">24/7</p>
-                  <p className="text-neutral-600 text-sm font-medium">Technical Support</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-neutral-900">100%</p>
-                  <p className="text-neutral-600 text-sm font-medium">Quality Focus</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-neutral-900">99.9%</p>
-                  <p className="text-neutral-600 text-sm font-medium">Precision Rating</p>
-                </div>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="dashboard" className="py-24 lg:py-32 bg-white">
+      {/* Features Section - Simplified and cleaner */}
+      <section id="dashboard" className="section-padding bg-white">
         <div className="container-max">
           <motion.div 
-            className="text-center mb-20"
+            className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <motion.div 
-              className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm mb-6"
-              variants={fadeInUp}
-            >
-              Advanced Engineering Solutions
-            </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
+            <h2 className="text-headline text-neutral-900 mb-6">
               Why Choose Western Isolators?
             </h2>
-            <p className="text-xl text-neutral-700 max-w-2xl mx-auto leading-relaxed font-medium">
-              Cutting-edge engineering excellence, innovation, and superior performance in vibration isolation technology.
+            <p className="text-body-large text-neutral-600 max-w-2xl mx-auto">
+              Experience the difference with our industry-leading vibration isolation technology.
             </p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -199,65 +163,41 @@ const Home = () => {
             {[
               {
                 icon: Shield,
-                title: "Premium Quality Standards",
-                description: "Rigorous quality management systems ensuring consistent excellence in every product we manufacture",
-                color: "bg-primary-600 text-white",
-                bgColor: "bg-primary-50",
-                borderColor: "border-primary-200"
+                title: "Premium Quality",
+                description: "Rigorous testing and quality assurance ensuring excellence in every product.",
+                gradient: "from-blue-500 to-blue-600"
               },
               {
                 icon: Zap,
                 title: "Superior Performance",
-                description: "Advanced isolation technology delivering up to 99% vibration reduction for critical equipment protection",
-                color: "bg-accent-600 text-white",
-                bgColor: "bg-accent-50",
-                borderColor: "border-accent-200"
+                description: "Advanced technology delivering up to 99% vibration reduction for critical applications.",
+                gradient: "from-emerald-500 to-emerald-600"
               },
               {
                 icon: Globe,
-                title: "Global Reach",
-                description: "Comprehensive worldwide service capabilities with local engineering expertise, efficient shipping, and dedicated technical support",
-                color: "bg-neutral-700 text-white",
-                bgColor: "bg-neutral-50",
-                borderColor: "border-neutral-200"
-              },
-              {
-                icon: BarChart3,
-                title: "Custom Engineering",
-                description: "In-house design team creates tailored solutions for unique applications with precise specifications",
-                color: "bg-primary-700 text-white",
-                bgColor: "bg-primary-50",
-                borderColor: "border-primary-200"
-              },
-              {
-                icon: Users,
-                title: "Expert Technical Support",
-                description: "Dedicated engineering team providing consultation, installation guidance, and ongoing maintenance support",
-                color: "bg-accent-700 text-white",
-                bgColor: "bg-accent-50",
-                borderColor: "border-accent-200"
+                title: "Reliable Service",
+                description: "Local expertise with dependable support and fast response times for all your needs.",
+                gradient: "from-purple-500 to-purple-600"
               },
               {
                 icon: Star,
-                title: "Premium Materials",
-                description: "High-grade rubber compounds and precision steel components for maximum durability and performance",
-                color: "bg-neutral-800 text-white",
-                bgColor: "bg-neutral-50",
-                borderColor: "border-neutral-200"
+                title: "Custom Solutions",
+                description: "In-house engineering team creating tailored solutions for unique requirements.",
+                gradient: "from-orange-500 to-orange-600"
               }
             ].map((feature, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className={`${feature.bgColor} ${feature.borderColor} border rounded-2xl p-8 transition-shadow duration-300 hover:shadow-md`}
+                className="card-minimal text-center p-8 hover-lift group"
               >
-                <div className={`inline-flex p-4 rounded-xl ${feature.color} mb-6`}>
-                  <feature.icon className="h-6 w-6" />
+                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.gradient} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-4">
+                <h3 className="text-title text-neutral-900 mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-neutral-700 leading-relaxed font-medium">
+                <p className="text-neutral-600 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -266,96 +206,75 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section id="products" className="py-24 lg:py-32 bg-white">
+      {/* Products Section - Clean Product Showcase */}
+      <section id="products" className="section-padding gradient-bg-neutral">
         <div className="container-max">
           <motion.div 
-            className="text-center mb-20"
+            className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <motion.div 
-              className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm mb-8"
-              variants={fadeInUp}
-            >
+            <h2 className="text-headline text-neutral-900 mb-6">
               Our Product Range
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
-              Vibration Isolation <span className="text-primary-600">Solutions</span>
             </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-              Precision-engineered mounts designed for optimal performance across diverse industrial applications.
+            <p className="text-body-large text-neutral-600 max-w-2xl mx-auto">
+              Precision-engineered solutions designed for optimal performance across diverse industrial applications.
             </p>
           </motion.div>
 
-          {/* Simplified Product Grid */}
+          {/* Clean Product Grid */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+            className="product-grid"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {productCategories[0]?.subProducts?.map((subProduct, index) => (
+            {products.map((product) => (
               <motion.div
-                key={subProduct.id}
+                key={product.id}
                 variants={fadeInUp}
                 className="group"
               >
-                <Link to={`/products/center-bonded/${subProduct.id}`} className="block">
-                  {/* Clean Product Card */}
-                  <div className="relative overflow-hidden rounded-xl bg-white border border-neutral-200 hover:border-primary-300 transition-all duration-300 hover:shadow-lg group-hover:-translate-y-1">
+                <Link to={`/products/${product.id}`} className="block h-full">
+                  <div className="card hover-lift group-hover:shadow-2xl h-full flex flex-col">
                     {/* Image Container */}
-                    <div className="relative aspect-square overflow-hidden bg-neutral-50">
+                    <div className="relative aspect-square overflow-hidden bg-gradient-bg-primary rounded-t-2xl">
                       <img 
-                        src={subProduct.image}
-                        alt={subProduct.name}
-                        className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500"
                       />
-                      {/* Subtle overlay on hover */}
                       <div className="absolute inset-0 bg-primary-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     
-                    {/* Minimal Content */}
-                    <div className="p-4 text-center">
-                      <h3 className="font-semibold text-neutral-900 text-sm group-hover:text-primary-600 transition-colors duration-300">
-                        {subProduct.name.replace(' (WI Series)', '').replace(' Mounts', '')}
+                    {/* Content */}
+                    <div className="p-8 text-center flex-1 flex flex-col">
+                      <h3 className="text-title text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors">
+                        {product.name.replace(' (WI Series)', '').replace(' Mounts', '')}
                       </h3>
+                      <p className="text-neutral-600 leading-relaxed mb-6 flex-1">
+                        {product.description.substring(0, 120)}...
+                      </p>
+                      <div className="flex items-center justify-center text-primary-600 font-semibold group-hover:text-primary-700 transition-colors mt-auto">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
                 </Link>
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Simple CTA */}
-          <motion.div 
-            className="text-center mt-16"
-            variants={fadeInUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <p className="text-neutral-600 mb-6 text-lg">
-              Need help choosing the right mount? Our engineers are here to help.
-            </p>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="inline-flex items-center px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
-            >
-              Get Expert Consultation
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 lg:py-32 bg-neutral-900 relative overflow-hidden">
+      {/* Contact Section - Modern & Clean */}
+      <section id="contact" className="section-padding bg-neutral-900 relative overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}></div>
@@ -363,85 +282,91 @@ const Home = () => {
         
         <div className="container-max relative z-10">
           <motion.div 
-            className="text-center mb-20"
+            className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <motion.div 
-              className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm mb-6"
-              variants={fadeInUp}
-            >
-              Connect With Us
-            </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Ready to solve your vibration challenges?
+            <h2 className="text-headline text-white mb-6">
+              Ready to Solve Your Vibration Challenges?
             </h2>
-            <p className="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed font-medium">
-              Connect with our engineering experts to design the perfect vibration isolation solution for your specific requirements.
+            <p className="text-body-large text-neutral-300 max-w-2xl mx-auto">
+              Connect with our engineering experts to design the perfect vibration isolation solution.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Contact Form */}
             <motion.div
               variants={fadeInUp}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="bg-neutral-800 rounded-xl p-8 border-2 border-neutral-700 shadow-2xl"
+              className="bg-neutral-800 rounded-2xl p-8 border border-neutral-700"
             >
+              <h3 className="text-title text-white mb-8">Get In Touch</h3>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
+                    <label className="block text-sm font-semibold text-white mb-2">Name *</label>
                     <input
-                      type="text"
                       {...register('name', { required: 'Name is required' })}
-                      placeholder="Your full name"
-                      className="w-full px-4 py-4 bg-neutral-700 border-2 border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-white placeholder-neutral-300 hover:border-neutral-500 font-medium"
+                      className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-white placeholder-neutral-400 focus:border-primary-500 focus:outline-none transition-colors"
+                      placeholder="Your name"
                     />
                     {errors.name && (
-                      <p className="mt-2 text-sm text-red-400 font-semibold">{errors.name.message}</p>
+                      <p className="mt-2 text-sm text-red-400">{errors.name.message}</p>
                     )}
                   </div>
                   <div>
+                    <label className="block text-sm font-semibold text-white mb-2">Email *</label>
                     <input
-                      type="email"
                       {...register('email', { 
                         required: 'Email is required',
                         pattern: {
-                          value: /^\S+@\S+$/i,
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: 'Invalid email address'
                         }
                       })}
-                      placeholder="your.email@company.com"
-                      className="w-full px-4 py-4 bg-neutral-700 border-2 border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-white placeholder-neutral-300 hover:border-neutral-500 font-medium"
+                      className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-white placeholder-neutral-400 focus:border-primary-500 focus:outline-none transition-colors"
+                      placeholder="your@email.com"
                     />
                     {errors.email && (
-                      <p className="mt-2 text-sm text-red-400 font-semibold">{errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <textarea
-                      rows={6}
-                      {...register('message', { required: 'Message is required' })}
-                      placeholder="Tell us about your vibration isolation requirements..."
-                      className="w-full px-4 py-4 bg-neutral-700 border-2 border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-white placeholder-neutral-300 hover:border-neutral-500 resize-none font-medium"
-                    />
-                    {errors.message && (
-                      <p className="mt-2 text-sm text-red-400 font-semibold">{errors.message.message}</p>
+                      <p className="mt-2 text-sm text-red-400">{errors.email.message}</p>
                     )}
                   </div>
                 </div>
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">Company</label>
+                  <input
+                    {...register('company')}
+                    className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-white placeholder-neutral-400 focus:border-primary-500 focus:outline-none transition-colors"
+                    placeholder="Your company"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">Message *</label>
+                  <textarea
+                    {...register('message', { required: 'Message is required' })}
+                    rows={5}
+                    className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-white placeholder-neutral-400 focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                    placeholder="Tell us about your vibration isolation needs..."
+                  />
+                  {errors.message && (
+                    <p className="mt-2 text-sm text-red-400">{errors.message.message}</p>
+                  )}
+                </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full btn-primary"
                 >
-                  Request Consultation
+                  Send Message
                 </button>
               </form>
             </motion.div>
 
+            {/* Contact Information */}
             <motion.div
               className="space-y-8"
               variants={fadeInUp}
@@ -450,54 +375,42 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
+                <h3 className="text-title text-white mb-8">Contact Information</h3>
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, title: "Phone", detail: "+1 (555) 123-4567", color: "bg-primary-600" },
-                    { icon: Mail, title: "Email", detail: "info@westernisolators.com", color: "bg-primary-600" },
-                    { icon: MapPin, title: "Address", detail: "1234 Industrial Avenue\nManufacturing City, MC 12345", color: "bg-primary-600" }
+                    { icon: Phone, title: "Phone", detail: "+1 (555) 123-4567" },
+                    { icon: Mail, title: "Email", detail: "info@westernisolators.com" },
+                    { icon: MapPin, title: "Address", detail: "178 Shaded Creek Dr, Kitchener ON N2P0K7" }
                   ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-start space-x-4 p-4 bg-neutral-800 rounded-lg border-2 border-neutral-700 hover:border-neutral-600 transition-colors duration-200"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className={`${item.color} p-3 rounded-lg`}>
-                        <item.icon className="h-5 w-5 text-white" />
+                    <div key={index} className="flex items-start space-x-4 p-6 bg-neutral-800 rounded-xl border border-neutral-700">
+                      <div className="bg-primary-600 p-3 rounded-lg">
+                        <item.icon className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-bold text-white text-sm">{item.title}</p>
-                        <p className="text-neutral-200 text-sm whitespace-pre-line font-medium">{item.detail}</p>
+                        <p className="font-semibold text-white text-sm">{item.title}</p>
+                        <p className="text-neutral-200 whitespace-pre-line">{item.detail}</p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              <motion.div 
-                className="bg-neutral-800 p-6 rounded-lg border-2 border-neutral-700"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="font-bold text-white mb-3 text-sm">Business Hours</h4>
-                <div className="space-y-2 text-sm text-neutral-200">
+              <div className="bg-neutral-800 p-6 rounded-xl border border-neutral-700">
+                <h4 className="font-semibold text-white mb-3">Why Choose Us?</h4>
+                <div className="space-y-3 text-sm text-neutral-200">
                   {[
-                    { day: "Monday - Friday", hours: "8:00 AM - 6:00 PM" },
-                    { day: "Saturday", hours: "9:00 AM - 4:00 PM" },
-                    { day: "Sunday", hours: "Closed" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex justify-between font-medium">
-                      <span>{item.day}</span>
-                      <span>{item.hours}</span>
+                    "✓ Industry-leading expertise",
+                    "✓ Custom engineering solutions",
+                    "✓ Quick turnaround times",
+                    "✓ Competitive pricing",
+                    "✓ Local support & service"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-center">
+                      <span>{benefit}</span>
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>

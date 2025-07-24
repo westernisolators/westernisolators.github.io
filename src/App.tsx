@@ -8,6 +8,7 @@ import OnePieceMounts from './pages/OnePieceMounts';
 import TwoPieceMounts from './pages/TwoPieceMounts';
 import ThreePieceMounts from './pages/ThreePieceMounts';
 import CombinationMounts from './pages/CombinationMounts';
+import MiscellaneousMounts from './pages/MiscellaneousMounts';
 
 function App() {
   return (
@@ -22,10 +23,11 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products/center-bonded/one-piece" element={<OnePieceMounts />} />
-            <Route path="/products/center-bonded/two-piece" element={<TwoPieceMounts />} />
-            <Route path="/products/center-bonded/three-piece" element={<ThreePieceMounts />} />
-            <Route path="/products/center-bonded/combination" element={<CombinationMounts />} />
+            <Route path="/products/one-piece" element={<OnePieceMounts />} />
+            <Route path="/products/two-piece" element={<TwoPieceMounts />} />
+            <Route path="/products/three-piece" element={<ThreePieceMounts />} />
+            <Route path="/products/combination" element={<CombinationMounts />} />
+            <Route path="/products/miscellaneous" element={<MiscellaneousMounts />} />
           </Routes>
         </motion.main>
         <Footer />

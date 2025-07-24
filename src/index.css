@@ -10,45 +10,79 @@
   }
   
   body {
-    @apply bg-white text-neutral-900 font-sans;
+    @apply bg-neutral-50 text-neutral-900 font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+  }
+  
+  /* Better focus styles */
+  *:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* Modern button styles */
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 border-2 border-transparent;
   }
   
   .btn-secondary {
-    @apply bg-white border border-primary-600 text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-all duration-200;
+    @apply bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
   }
   
-  .btn-light {
-    @apply bg-white hover:bg-neutral-50 text-neutral-800 font-medium py-3 px-8 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md border border-neutral-200;
-  }
-  
+  /* Layout utilities */
   .section-padding {
-    @apply py-20 lg:py-32;
+    @apply py-16 lg:py-24;
   }
   
   .container-max {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  .hero-text {
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight;
+  /* Typography */
+  .text-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
   }
   
-  .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-light tracking-tight;
+  .text-headline {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight;
   }
   
+  .text-title {
+    @apply text-2xl md:text-3xl font-bold leading-tight;
+  }
+  
+  .text-body-large {
+    @apply text-lg leading-relaxed;
+  }
+  
+  /* Card styles */
   .card {
-    @apply bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100;
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-200/50 hover:border-primary-200;
   }
   
-  .group-hover\:scale-102:hover {
-    transform: scale(1.02);
+  .card-minimal {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-200/50;
+  }
+  
+  /* Product grid styles */
+  .product-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply hover:-translate-y-1 transition-transform duration-300;
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-bg-primary {
+    @apply bg-gradient-to-br from-primary-50 to-primary-100;
+  }
+  
+  .gradient-bg-neutral {
+    @apply bg-gradient-to-br from-neutral-50 to-neutral-100;
   }
 }

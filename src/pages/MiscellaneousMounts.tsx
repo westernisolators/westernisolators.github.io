@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import twoPieceImage from '../assets/two-piece.png';
+import miscellaneousImage from '../assets/miscellaneous.png'; 
 
 interface MountData {
   item: string;
@@ -11,11 +11,7 @@ interface MountData {
     C: string;
     D: string;
     E: string;
-    F: string;
-    G: string;
   };
-  supportingMember: string;
-  holeSize: string;
 }
 
 const TwoPieceMounts = () => {
@@ -37,57 +33,55 @@ const TwoPieceMounts = () => {
   const mountsData: MountData[] = [
     {
       item: 'WI-25',
-      dimensions: { A: '25', B: '8.5', C: '14.2', D: '21', E: '14.2', F: '8', G: '14.2' },
-      supportingMember: '7',
-      holeSize: '13'
+      dimensions: { A: '63.50', B: '16.00', C: '41.40', D: '26.90', E: '30.20'}
     },
     {
       item: 'WI-30',
-      dimensions: { A: '30', B: '8.5', C: '14', D: '26.5', E: '18', F: '10.5', G: '14' },
-      supportingMember: '8',
-      holeSize: '17'
+      dimensions: { A: '82.60', B: '25.40', C: '43.90', D: '35.10', E: '49.10'}
     },
     {
       item: 'WI-33',
-      dimensions: { A: '33', B: '10', C: '14.5', D: '32', E: '20', F: '12.4', G: '14.7' },
-      supportingMember: '10',
-      holeSize: '19'
+      dimensions: { A: '64.80', B: '19.00', C: '35.00', D: '22.90', E: '34.30'}
     },
     {
       item: 'WI-48',
-      dimensions: { A: '48', B: '13', C: '21.5', D: '48.5', E: '33', F: '20', G: '22' },
-      supportingMember: '12',
-      holeSize: '31.7'
+      dimensions: { A: '69.90', B: '15.90', C: '-', D: '-', E: '31.80'}
     },
     {
       item: 'WI-50',
-      dimensions: { A: '50', B: '13', C: '18.5', D: '50', E: '32.5', F: '20', G: '20' },
-      supportingMember: '15',
-      holeSize: '31'
+      dimensions: { A: '68.60', B: '19.80', C: '31.50', D: '17.80', E: '20.80'}
     },
     {
       item: 'WI-65',
-      dimensions: { A: '65', B: '16.7', C: '24.6', D: '61.7', E: '40.1', F: '22.9', G: '24.4' },
-      supportingMember: '19',
-      holeSize: '38.1'
+      dimensions: { A: '68.60', B: '19.80', C: '33.00', D: '18.30', E: '23.60'}
     },
     {
       item: 'WI-70',
-      dimensions: { A: '70', B: '18', C: '26', D: '64', E: '45', F: '24', G: '26' },
-      supportingMember: '19',
-      holeSize: '43'
+      dimensions: { A: '69.90', B: '16.80', C: '27.70', D: '28.20', E: '31.20'}
     },
     {
       item: 'WI-90',
-      dimensions: { A: '89', B: '23.5', C: '34.5', D: '73', E: '58.5', F: '25.4', G: '35' },
-      supportingMember: '25.4',
-      holeSize: '57.1'
+      dimensions: { A: '82.60', B: '17.00', C: '31.80', D: '34.30', E: '42.00'}
     },
     {
       item: 'WI-124',
-      dimensions: { A: '124', B: '32', C: '45', D: '86', E: '68', F: '32', G: '46' },
-      supportingMember: '25.4',
-      holeSize: '63.5'
+      dimensions: { A: '103.10', B: '16.30', C: '32.30', D: '37.10', E: '45.00'}
+    },
+    {
+      item: 'WI-125',
+      dimensions: { A: '103.10', B: '19.60', C: '31.80', D: '37.10', E: '45.00'}
+    },
+    {
+      item: 'WI-126',
+      dimensions: { A: '76.20', B: '16.80', C: '30.20', D: '25.10', E: '30.00'}
+    },
+    {
+      item: 'WI-127',
+      dimensions: { A: '63.50', B: '15.70', C: '-', D: '-', E: '25.40'}
+    },
+    {
+      item: 'WI-128',
+      dimensions: { A: '57.20', B: '15.70', C: '-', D: '-', E: '22.90'}
     }
   ];
 
@@ -118,10 +112,10 @@ const TwoPieceMounts = () => {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-              Two Piece Mounts
+              Miscellaneous Mounts
             </h1>
             <p className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
-              Two-piece center-bounded rubber mounts consist of a rubber element permanently bonded between an inner and outer metal component, forming a single, robust unit. This design effectively isolates vibration and dampens shock in multiple directions, particularly under radial and axial loads. They are commonly used for resiliently supporting engines, generators, and industrial machinery.
+              If standard vibration mounts don’t meet your needs, consider our selection of miscellaneous vibration dampeners. Designed for unique applications, these customized center-bonded mounts offer effective vibration isolation.
             </p>
           </motion.div>
 
@@ -136,7 +130,7 @@ const TwoPieceMounts = () => {
             <motion.div variants={fadeInUp} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center overflow-hidden">
                 <img 
-                  src={twoPieceImage} 
+                  src={miscellaneousImage} 
                   alt="Two Piece Mount" 
                   className="w-full h-full object-cover"
                 />
@@ -172,10 +166,6 @@ const TwoPieceMounts = () => {
                       <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">C (mm)</th>
                       <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">D (mm)</th>
                       <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">E (mm)</th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">F (mm)</th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">G (mm)</th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Supporting Member | T (mm)</th>
-                      <th className="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Hole Size | O (mm)</th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-neutral-200">
@@ -189,10 +179,6 @@ const TwoPieceMounts = () => {
                         <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.dimensions.C}</td>
                         <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.dimensions.D}</td>
                         <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.dimensions.E}</td>
-                        <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.dimensions.F}</td>
-                        <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.dimensions.G}</td>
-                        <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.supportingMember}</td>
-                        <td className="px-3 py-3 whitespace-nowrap text-sm text-neutral-600">{mount.holeSize}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -13,11 +13,10 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '#home', isRoute: false },
     { name: 'About', href: '#dashboard', isRoute: false },
-    { name: 'Products', href: '/products', isRoute: true, section: 'products' },
+    { name: 'Products', href: '#products', isRoute: false, section: 'products' },
   ];
 
   const scrollToSection = (href: string) => {
-    // If we're not on the home page and trying to scroll to a section, go to home first
     if (location.pathname !== '/' && href.startsWith('#')) {
       navigate('/');
       setTimeout(() => {
@@ -32,7 +31,6 @@ const Navbar = () => {
         }
       }, 100);
     } else {
-      // We're on the home page, scroll normally
       const sectionId = href.replace('#', '');
       const element = document.getElementById(sectionId);
       if (element) {
@@ -73,7 +71,6 @@ const Navbar = () => {
   };
 
   const isActive = (href: string, section?: string) => {
-    // Only show active state on home page for section links and Products
     if (location.pathname !== '/' && (href.startsWith('#') || section === 'products')) {
       return false;
     }
@@ -84,7 +81,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    // Only track scroll sections on home page
     if (location.pathname !== '/') {
       setActiveSection('');
       return;
@@ -116,7 +112,9 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200' : 'bg-transparent'
+        scrolled 
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-neutral-200/50' 
+          : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -124,39 +122,37 @@ const Navbar = () => {
     >
       <div className="container-max">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo - Cleaner Design */}
           <motion.div 
-            className="flex items-center space-x-3 cursor-pointer" 
+            className="flex items-center space-x-3 cursor-pointer group" 
             onClick={handleLogoClick}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             <div className="relative">
-              <div className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">W</span>
+              <div className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                <span className="text-white font-bold text-lg">W</span>
               </div>
             </div>
-            <span className={`text-xl font-medium transition-colors duration-300 ${
-              scrolled ? 'text-gray-800' : 'text-neutral-900'
+            <span className={`text-xl font-bold transition-colors duration-300 ${
+              scrolled ? 'text-neutral-900' : 'text-neutral-900'
             }`}>
               Western Isolators
             </span>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Desktop Navigation - Cleaner Styling */}
+          <div className="hidden md:flex items-center space-x-2">
             {navigation.map((item, index) => (
               item.isRoute ? (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     isActive(item.href, item.section)
-                      ? scrolled 
-                        ? 'bg-primary-600 text-white'
-                        : 'bg-primary-600 text-white shadow-md'
+                      ? 'bg-primary-600 text-white shadow-lg'
                       : scrolled
-                        ? 'text-neutral-600 hover:text-primary-600 hover:bg-primary-50'
+                        ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
                         : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
                   }`}
                 >
@@ -166,13 +162,11 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     isActive(item.href)
-                      ? scrolled 
-                        ? 'bg-primary-600 text-white'
-                        : 'bg-primary-600 text-white shadow-md'
+                      ? 'bg-primary-600 text-white shadow-lg'
                       : scrolled
-                        ? 'text-neutral-600 hover:text-primary-600 hover:bg-primary-50'
+                        ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
                         : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
                   }`}
                   initial={{ opacity: 0, y: -20 }}
@@ -187,7 +181,7 @@ const Navbar = () => {
             ))}
             <motion.button 
               onClick={handleContactClick}
-              className="ml-4 px-6 py-3 rounded-lg font-medium bg-primary-600 text-white hover:bg-primary-700 shadow-sm hover:shadow-md transition-all duration-200"
+              className="ml-4 btn-primary"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -202,7 +196,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-3 rounded-full transition-colors duration-300 ${
+              className={`p-3 rounded-xl transition-colors duration-300 ${
                 scrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-neutral-700 hover:bg-white/80'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -213,13 +207,13 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Cleaner Design */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white rounded-2xl mt-4 p-4 shadow-lg border border-gray-100"
+            className="md:hidden bg-white/95 backdrop-blur-lg rounded-2xl mt-4 p-6 shadow-xl border border-neutral-200/50"
           >
             <div className="space-y-2">
               {navigation.map((item) => (
@@ -227,10 +221,10 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
                       isActive(item.href, item.section)
                         ? 'bg-primary-600 text-white'
-                        : 'text-neutral-900 hover:bg-gray-100'
+                        : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -240,10 +234,10 @@ const Navbar = () => {
                   <motion.button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
                       isActive(item.href)
                         ? 'bg-primary-600 text-white'
-                        : 'text-neutral-900 hover:bg-gray-100'
+                        : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
                     }`}
                     whileHover={{ x: 4 }}
                     whileTap={{ scale: 0.98 }}
@@ -254,7 +248,7 @@ const Navbar = () => {
               ))}
               <motion.button 
                 onClick={handleContactClick}
-                className="w-full mt-4 bg-primary-600 text-white font-medium py-3 px-4 rounded-xl hover:bg-primary-700 transition-all duration-300"
+                className="w-full mt-4 btn-primary"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
