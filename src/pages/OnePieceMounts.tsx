@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import onePieceType1 from '../assets/one-piece_type1.png';
+import onePieceType2 from '../assets/one-piece_type2.png';
 
 interface MountData {
   series: string;
@@ -258,32 +260,30 @@ const OnePieceMounts = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
           >
             <motion.div variants={fadeInUp} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-neutral-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-neutral-600 text-2xl font-bold">WI</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-neutral-700">Type 1 Mount</h3>
-                  <p className="text-neutral-600 text-sm">Standard Configuration</p>
-                </div>
+              <div className="h-80 flex items-center justify-center bg-neutral-50">
+                <img 
+                  src={onePieceType1} 
+                  alt="Type 1 One Piece Mount"
+                  className="max-h-full max-w-full object-contain p-4"
+                />
               </div>
               <div className="p-6">
-                <h4 className="font-semibold text-neutral-900 mb-2">Type 1</h4>
+                <h4 className="font-semibold text-neutral-900 mb-2">Type 1 Mount</h4>
+                <p className="text-neutral-600 text-sm">Standard Configuration</p>
               </div>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-neutral-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-neutral-600 text-2xl font-bold">WI</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-neutral-700">Type 2 Mount</h3>
-                  <p className="text-neutral-600 text-sm">Enhanced Configuration</p>
-                </div>
+              <div className="h-80 flex items-center justify-center bg-neutral-50">
+                <img 
+                  src={onePieceType2} 
+                  alt="Type 2 One Piece Mount"
+                  className="max-h-full max-w-full object-contain p-4"
+                />
               </div>
               <div className="p-6">
                 <h4 className="font-semibold text-neutral-900 mb-2">Type 2 Mount</h4>
+                <p className="text-neutral-600 text-sm">Enhanced Configuration</p>
               </div>
             </motion.div>
           </motion.div>

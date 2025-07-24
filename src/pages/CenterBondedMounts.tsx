@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import centerBondedMountImage from '../assets/center-bounded-mount.png';
+import twoPieceMountImage from '../assets/two-piece_mount.png';
 
 const CenterBondedMounts = () => {
   const fadeInUp = {
@@ -28,7 +29,7 @@ const CenterBondedMounts = () => {
     {
       id: 'two-piece',
       name: 'Two Piece', 
-      image: centerBondedMountImage,
+      image: twoPieceMountImage,
       description: 'Two-piece mounts are used for heavy-duty applications such as compressors, pumps, and HVAC equipment.'
     },
     {

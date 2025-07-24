@@ -267,7 +267,7 @@ const Home = () => {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-24 lg:py-32 bg-neutral-50">
+      <section id="products" className="py-24 lg:py-32 bg-white">
         <div className="container-max">
           <motion.div 
             className="text-center mb-20"
@@ -277,65 +277,77 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <motion.div 
-              className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm mb-6"
+              className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-semibold shadow-sm mb-8"
               variants={fadeInUp}
             >
-              Innovative Isolation Technology
-            </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
               Our Product Range
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
+              Vibration Isolation <span className="text-primary-600">Solutions</span>
             </h2>
-            <p className="text-xl text-neutral-700 max-w-2xl mx-auto leading-relaxed font-medium">
-              Comprehensive vibration isolation solutions engineered for maximum performance across diverse industrial applications.
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              Precision-engineered mounts designed for optimal performance across diverse industrial applications.
             </p>
           </motion.div>
 
+          {/* Simplified Product Grid */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {productCategories.map((product) => (
+            {productCategories[0]?.subProducts?.map((subProduct, index) => (
               <motion.div
-                key={product.id}
+                key={subProduct.id}
                 variants={fadeInUp}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-200 transition-shadow duration-300 hover:shadow-md"
+                className="group"
               >
-                <Link to={`/products/${product.id}`} className="block">
-                  <div className="relative overflow-hidden h-64">
-                    <img 
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-                  </div>
-                  
-                  <div className="p-8">
-                    <h3 className="text-xl font-bold text-neutral-900 mb-3 transition-colors duration-300 group-hover:text-primary-700">
-                      {product.name}
-                    </h3>
-                    <p className="text-neutral-700 mb-6 text-sm leading-relaxed line-clamp-3 font-medium">
-                      {product.description}
-                    </p>
+                <Link to={`/products/center-bonded/${subProduct.id}`} className="block">
+                  {/* Clean Product Card */}
+                  <div className="relative overflow-hidden rounded-xl bg-white border border-neutral-200 hover:border-primary-300 transition-all duration-300 hover:shadow-lg group-hover:-translate-y-1">
+                    {/* Image Container */}
+                    <div className="relative aspect-square overflow-hidden bg-neutral-50">
+                      <img 
+                        src={subProduct.image}
+                        alt={subProduct.name}
+                        className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {/* Subtle overlay on hover */}
+                      <div className="absolute inset-0 bg-primary-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
                     
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center text-primary-700 font-bold text-sm">
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 text-primary-700" />
-                      </span>
-                      {product.subProducts && (
-                        <span className="text-xs text-neutral-600 bg-primary-100 px-3 py-1 rounded-full border border-primary-200 font-semibold">
-                          {product.subProducts.length} variants
-                        </span>
-                      )}
+                    {/* Minimal Content */}
+                    <div className="p-4 text-center">
+                      <h3 className="font-semibold text-neutral-900 text-sm group-hover:text-primary-600 transition-colors duration-300">
+                        {subProduct.name.replace(' (WI Series)', '').replace(' Mounts', '')}
+                      </h3>
                     </div>
                   </div>
                 </Link>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Simple CTA */}
+          <motion.div 
+            className="text-center mt-16"
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <p className="text-neutral-600 mb-6 text-lg">
+              Need help choosing the right mount? Our engineers are here to help.
+            </p>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="inline-flex items-center px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              Get Expert Consultation
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
           </motion.div>
         </div>
       </section>

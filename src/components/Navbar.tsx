@@ -13,7 +13,7 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '#home', isRoute: false },
     { name: 'About', href: '#dashboard', isRoute: false },
-    { name: 'Products', href: '/products/center-bonded', isRoute: true, section: 'products' },
+    { name: 'Products', href: '/products', isRoute: true, section: 'products' },
   ];
 
   const scrollToSection = (href: string) => {

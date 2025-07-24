@@ -4,8 +4,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
-import Products from './pages/Products';
-import CenterBondedMounts from './pages/CenterBondedMounts';
 import OnePieceMounts from './pages/OnePieceMounts';
 import TwoPieceMounts from './pages/TwoPieceMounts';
 import ThreePieceMounts from './pages/ThreePieceMounts';
@@ -24,9 +22,6 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:category" element={<Products />} />
-            <Route path="/products/center-bonded" element={<CenterBondedMounts />} />
             <Route path="/products/center-bonded/one-piece" element={<OnePieceMounts />} />
             <Route path="/products/center-bonded/two-piece" element={<TwoPieceMounts />} />
             <Route path="/products/center-bonded/three-piece" element={<ThreePieceMounts />} />
