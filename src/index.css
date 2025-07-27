@@ -17,8 +17,17 @@
   
   /* Better focus styles */
   *:focus {
-    outline: 2px solid #3b82f6;
-    outline-offset: 2px;
+    outline: none;
+  }
+  
+  /* Remove focus outline from links specifically */
+  a:focus {
+    outline: none;
+  }
+  
+  /* Remove focus outline on click/active state */
+  a:active {
+    outline: none;
   }
 }
 

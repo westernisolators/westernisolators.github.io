@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -13,11 +14,37 @@ interface ContactFormData {
 
 const Home = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
+  const [result, setResult] = React.useState("");
   
-  const onSubmit = (_data: ContactFormData) => {
-    // TODO: Implement actual form submission logic
-    alert('Thank you for your message! We will get back to you soon.');
-    reset();
+  const onSubmit = async (data: ContactFormData) => {
+    setResult("Sending...");
+    
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("company", data.company || "");
+      formData.append("message", data.message);
+      formData.append("access_key", "7c5f1b0a-4293-46be-9870-e8e1373fa4a5");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setResult("Form Submitted Successfully");
+        reset();
+      } else {
+        console.log("Error", result);
+        setResult(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setResult("Failed to send message. Please try again.");
+    }
   };
 
   const fadeInUp = {
@@ -88,7 +115,7 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 Western Isolators delivers cutting-edge vibration isolation solutions for industrial applications. 
-                Our precision-manufactured mounts ensure optimal performance, reliability, and equipment longevity.
+                Our isolation mounts ensure optimal performance, reliability, and equipment longevity.
               </motion.p>
 
               {/* Feature Highlights */}
@@ -360,9 +387,22 @@ const Home = () => {
                 <button
                   type="submit"
                   className="w-full btn-primary"
+                  disabled={result === "Sending..."}
                 >
-                  Send Message
+                  {result === "Sending..." ? "Sending..." : "Send Message"}
                 </button>
+                
+                {result && (
+                  <div className={`text-center p-3 rounded-lg ${
+                    result === "Form Submitted Successfully" 
+                      ? "bg-green-900/30 text-green-400 border border-green-700" 
+                      : result === "Sending..." 
+                      ? "bg-blue-900/30 text-blue-400 border border-blue-700"
+                      : "bg-red-900/30 text-red-400 border border-red-700"
+                  }`}>
+                    {result}
+                  </div>
+                )}
               </form>
             </motion.div>
 
@@ -378,19 +418,35 @@ const Home = () => {
                 <h3 className="text-title text-white mb-8">Contact Information</h3>
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, title: "Phone", detail: "+1 (555) 123-4567" },
-                    { icon: Mail, title: "Email", detail: "info@westernisolators.com" },
-                    { icon: MapPin, title: "Address", detail: "178 Shaded Creek Dr, Kitchener ON N2P0K7" }
+                    { icon: Phone, title: "Phone", detail: "+1(548)488-3102", href: "tel:+15484883102" },
+                    { icon: Mail, title: "Email", detail: "info@westernisolators.com", href: "mailto:info@westernisolators.com" },
+                    { icon: MapPin, title: "Address", detail: "178 Shaded Creek Dr, Kitchener ON N2P0K7", href: null }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-4 p-6 bg-neutral-800 rounded-xl border border-neutral-700">
-                      <div className="bg-primary-600 p-3 rounded-lg">
-                        <item.icon className="h-6 w-6 text-white" />
+                    item.href ? (
+                      <a 
+                        key={index} 
+                        href={item.href}
+                        className="flex items-start space-x-4 p-6 bg-neutral-800 rounded-xl border border-neutral-700 hover:bg-neutral-700 transition-colors duration-300 group"
+                      >
+                        <div className="bg-primary-600 p-3 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                          <item.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-white text-sm">{item.title}</p>
+                          <p className="text-neutral-200 whitespace-pre-line group-hover:text-white transition-colors">{item.detail}</p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div key={index} className="flex items-start space-x-4 p-6 bg-neutral-800 rounded-xl border border-neutral-700">
+                        <div className="bg-primary-600 p-3 rounded-lg">
+                          <item.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-white text-sm">{item.title}</p>
+                          <p className="text-neutral-200 whitespace-pre-line">{item.detail}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-semibold text-white text-sm">{item.title}</p>
-                        <p className="text-neutral-200 whitespace-pre-line">{item.detail}</p>
-                      </div>
-                    </div>
+                    )
                   ))}
                 </div>
               </div>

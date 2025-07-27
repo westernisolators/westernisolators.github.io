@@ -122,7 +122,6 @@ const Navbar = () => {
     >
       <div className="container-max">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Cleaner Design */}
           <motion.div 
             className="flex items-center space-x-3 cursor-pointer group" 
             onClick={handleLogoClick}
@@ -131,7 +130,7 @@ const Navbar = () => {
           >
             <div className="relative">
               <div className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                <span className="text-white font-bold text-lg">W</span>
+                <span className="text-white font-bold text-lg">Wi</span>
               </div>
             </div>
             <span className={`text-xl font-bold transition-colors duration-300 ${

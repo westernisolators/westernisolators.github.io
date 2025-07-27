@@ -71,7 +71,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Leading manufacturer of precision vibration isolation systems, delivering innovative solutions for industrial excellence.
+              Leading suppliers of precision vibration isolation systems, delivering innovative solutions for industrial excellence.
             </motion.p>
             
             <motion.div 
@@ -82,18 +82,33 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               {[
-                { icon: Phone, text: "+1 (555) 123-4567", color: "bg-blue-600" },
-                { icon: Mail, text: "info@westernisolators.com", color: "bg-emerald-600" },
-                { icon: MapPin, text: "178 Shaded Creek Dr, Kitchener ON N2P0K7", color: "bg-purple-600" }
+                { icon: Phone, text: "+1(548)488-3102", color: "bg-blue-600", href: "tel:+15484883102" },
+                { icon: Mail, text: "info@westernisolators.com", color: "bg-emerald-600", href: "mailto:info@westernisolators.com" },
+                { icon: MapPin, text: "178 Shaded Creek Dr, Kitchener ON N2P0K7", color: "bg-purple-600", href: null }
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-4 group cursor-pointer">
-                  <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <item.icon className="h-5 w-5 text-white" />
+                item.href ? (
+                  <a 
+                    key={index} 
+                    href={item.href}
+                    className="flex items-center space-x-4 group cursor-pointer"
+                  >
+                    <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <item.icon className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-neutral-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
+                      {item.text}
+                    </span>
+                  </a>
+                ) : (
+                  <div key={index} className="flex items-center space-x-4 group">
+                    <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <item.icon className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-neutral-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
+                      {item.text}
+                    </span>
                   </div>
-                  <span className="text-neutral-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
-                    {item.text}
-                  </span>
-                </div>
+                )
               ))}
             </motion.div>
           </div>
