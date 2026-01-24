@@ -96,7 +96,7 @@ const Navbar = () => {
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveSection(section);
             break;
@@ -110,20 +110,19 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <motion.nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-neutral-200/50' 
-          : 'bg-transparent'
-      }`}
+    <motion.nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+        ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-neutral-200/50'
+        : 'bg-transparent'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container-max">
         <div className="flex justify-between items-center h-20">
-          <motion.div 
-            className="flex items-center space-x-3 cursor-pointer group" 
+          <motion.div
+            className="flex items-center space-x-3 cursor-pointer group"
             onClick={handleLogoClick}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
@@ -133,9 +132,8 @@ const Navbar = () => {
                 <span className="text-white font-bold text-lg">Wi</span>
               </div>
             </div>
-            <span className={`text-xl font-bold transition-colors duration-300 ${
-              scrolled ? 'text-neutral-900' : 'text-neutral-900'
-            }`}>
+            <span className={`text-xl font-bold transition-colors duration-300 ${scrolled ? 'text-neutral-900' : 'text-neutral-900'
+              }`}>
               Western Isolators
             </span>
           </motion.div>
@@ -147,13 +145,12 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                    isActive(item.href, item.section)
-                      ? 'bg-primary-600 text-white shadow-lg'
-                      : scrolled
-                        ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
-                  }`}
+                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${isActive(item.href, item.section)
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : scrolled
+                      ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                      : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -161,13 +158,12 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                    isActive(item.href)
-                      ? 'bg-primary-600 text-white shadow-lg'
-                      : scrolled
-                        ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
-                  }`}
+                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${isActive(item.href)
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : scrolled
+                      ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                      : 'text-neutral-700 hover:text-primary-600 hover:bg-white/80'
+                    }`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -178,7 +174,7 @@ const Navbar = () => {
                 </motion.button>
               )
             ))}
-            <motion.button 
+            <motion.button
               onClick={handleContactClick}
               className="ml-4 btn-primary"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -195,9 +191,8 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-3 rounded-xl transition-colors duration-300 ${
-                scrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-neutral-700 hover:bg-white/80'
-              }`}
+              className={`p-3 rounded-xl transition-colors duration-300 ${scrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-neutral-700 hover:bg-white/80'
+                }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -220,11 +215,10 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                      isActive(item.href, item.section)
-                        ? 'bg-primary-600 text-white'
-                        : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
-                    }`}
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${isActive(item.href, item.section)
+                      ? 'bg-primary-600 text-white'
+                      : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
+                      }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -233,11 +227,10 @@ const Navbar = () => {
                   <motion.button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                      isActive(item.href)
-                        ? 'bg-primary-600 text-white'
-                        : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
-                    }`}
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${isActive(item.href)
+                      ? 'bg-primary-600 text-white'
+                      : 'text-neutral-900 hover:bg-primary-50 hover:text-primary-600'
+                      }`}
                     whileHover={{ x: 4 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -245,7 +238,7 @@ const Navbar = () => {
                   </motion.button>
                 )
               ))}
-              <motion.button 
+              <motion.button
                 onClick={handleContactClick}
                 className="w-full mt-4 btn-primary"
                 whileHover={{ scale: 1.02 }}

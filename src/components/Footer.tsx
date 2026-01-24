@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <motion.div 
+            <motion.div
               className="flex items-center space-x-3 mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -59,12 +59,12 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">W</span>
+                <span className="text-white font-bold text-xl">Wi</span>
               </div>
               <span className="text-2xl font-bold">Western Isolators</span>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               className="text-neutral-300 mb-8 max-w-md text-lg leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,8 +73,8 @@ const Footer = () => {
             >
               Leading suppliers of precision vibration isolation systems, delivering innovative solutions for industrial excellence.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="space-y-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -87,8 +87,8 @@ const Footer = () => {
                 { icon: MapPin, text: "178 Shaded Creek Dr, Kitchener ON N2P0K7", color: "bg-purple-600", href: null }
               ].map((item, index) => (
                 item.href ? (
-                  <a 
-                    key={index} 
+                  <a
+                    key={index}
                     href={item.href}
                     className="flex items-center space-x-4 group cursor-pointer"
                   >
@@ -129,7 +129,7 @@ const Footer = () => {
                 { name: 'Contact', section: 'contact' }
               ].map((link) => (
                 <li key={link.name}>
-                  <button 
+                  <button
                     onClick={() => scrollToSection(link.section)}
                     className="text-neutral-300 hover:text-white transition-all duration-300 hover:translate-x-2 flex items-center group font-medium"
                   >
@@ -158,7 +158,7 @@ const Footer = () => {
                 { name: 'Miscellaneous Mounts', path: '/products/miscellaneous' }
               ].map((product) => (
                 <li key={product.name}>
-                  <button 
+                  <button
                     onClick={() => navigate(product.path)}
                     className="text-neutral-300 hover:text-white transition-all duration-300 hover:translate-x-2 flex items-center group font-medium"
                   >
@@ -172,7 +172,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <motion.div 
+        <motion.div
           className="border-t border-neutral-700 mt-16 pt-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -190,7 +190,7 @@ const Footer = () => {
               <a href="#" className="text-neutral-400 hover:text-white text-sm transition-colors duration-300 font-medium">
                 Terms of Service
               </a>
-              <button 
+              <button
                 onClick={scrollToTop}
                 className="bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
               >

@@ -9,6 +9,10 @@ import TwoPieceMounts from './pages/TwoPieceMounts';
 import ThreePieceMounts from './pages/ThreePieceMounts';
 import CombinationMounts from './pages/CombinationMounts';
 import MiscellaneousMounts from './pages/MiscellaneousMounts';
+import Isolators from './pages/Isolators';
+import Brushes from './pages/Brushes';
+import RubberExtrusion from './pages/RubberExtrusion';
+
 
 function App() {
   return (
@@ -28,6 +32,11 @@ function App() {
             <Route path="/products/three-piece" element={<ThreePieceMounts />} />
             <Route path="/products/combination" element={<CombinationMounts />} />
             <Route path="/products/miscellaneous" element={<MiscellaneousMounts />} />
+            <Route path="/products/isolators" element={<Isolators />} />
+            <Route path="/products/brushes" element={<Brushes />} />
+
+            <Route path="/products/rubber-extrusion" element={<RubberExtrusion />} />
+
           </Routes>
         </motion.main>
         <Footer />
