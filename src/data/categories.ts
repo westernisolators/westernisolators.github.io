@@ -8,6 +8,17 @@ import discBrush from '../assets/brushes_disc.png';
 import cupBrush from '../assets/brushes_cup.png';
 import forkliftBrush from '../assets/brushes_forklift_sweeper.png';
 
+// Isolator Images
+// Isolator Images (Slideshow)
+import twoPieceMount from '../assets/two-piece_mount.png';
+import threePieceMount from '../assets/three-piece_mount.png';
+
+// Rubber Extrusion Images
+import rubberDProfile from '../assets/rubber_extrusion_d_profile.png';
+import rubberUChannel from '../assets/rubber_extrusion_u_channel.png';
+import rubberGlazing from '../assets/rubber_extrusion_glazing.png';
+import rubberPProfile from '../assets/rubber_extrusion_p_profile.png';
+
 export interface Category {
     id: string;
     name: string;
@@ -23,7 +34,12 @@ export const categories: Category[] = [
         name: 'Isolators / Acoustic Mounts',
         description: 'High-performance vibration isolation mounts designed to handle high loads and offer multi-directional flexibility.',
         image: isolatorImage,
-        link: '/products/isolators'
+        link: '/products/isolators',
+        slideshowImages: [
+            isolatorImage,
+            twoPieceMount,
+            threePieceMount
+        ]
     },
     {
         id: 'brushes',
@@ -45,6 +61,12 @@ export const categories: Category[] = [
         name: 'Rubber Extrusion Parts',
         description: 'Custom rubber extrusion parts, seals, and profiles tailored to meet specific application requirements in various materials.',
         image: rubberImage,
-        link: '/products/rubber-extrusion'
+        link: '/products/rubber-extrusion',
+        slideshowImages: [
+            rubberDProfile,
+            rubberUChannel,
+            rubberGlazing,
+            rubberPProfile
+        ]
     }
 ];

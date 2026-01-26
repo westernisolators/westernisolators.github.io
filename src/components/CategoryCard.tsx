@@ -36,13 +36,13 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
+                                className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply brightness-110 contrast-125"
                             />
                         ) : (
                             <img
                                 src={category.image}
                                 alt={category.name}
-                                className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
+                                className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply brightness-110 contrast-125"
                             />
                         )}
                     </AnimatePresence>
