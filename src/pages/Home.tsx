@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { categories } from '../data/categories';
+import CategoryCard from '../components/CategoryCard';
 
 interface ContactFormData {
   name: string;
@@ -16,7 +17,6 @@ interface ContactFormData {
   dimensions?: string;
   message: string;
 }
-
 const Home = () => {
   const { register, handleSubmit, reset, watch, setValue, formState: { errors } } = useForm<ContactFormData>();
   const [result, setResult] = React.useState("");
@@ -313,33 +313,7 @@ const Home = () => {
                 variants={fadeInUp}
                 className="group"
               >
-                <Link to={category.link} className="block h-full">
-                  <div className="card hover-lift group-hover:shadow-2xl h-full flex flex-col">
-                    {/* Image Container */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-white rounded-t-2xl">
-                      <img
-                        src={category.image}
-                        alt={category.name}
-                        className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
-                      />
-                      <div className="absolute inset-0 bg-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-8 text-center flex-1 flex flex-col">
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors">
-                        {category.name}
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed mb-6 flex-1">
-                        {category.description}
-                      </p>
-                      <div className="flex items-center justify-center text-primary-600 font-semibold group-hover:text-primary-700 transition-colors mt-auto">
-                        Explore Category
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <CategoryCard category={category} />
               </motion.div>
             ))}
           </motion.div>
