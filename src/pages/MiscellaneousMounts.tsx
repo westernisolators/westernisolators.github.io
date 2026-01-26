@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import miscellaneousImage from '../assets/miscellaneous.png'; 
+import miscellaneousImage from '../assets/miscellaneous.webp';
 
 interface MountData {
   item: string;
@@ -33,55 +33,55 @@ const TwoPieceMounts = () => {
   const mountsData: MountData[] = [
     {
       item: 'WI-25',
-      dimensions: { A: '63.50', B: '16.00', C: '41.40', D: '26.90', E: '30.20'}
+      dimensions: { A: '63.50', B: '16.00', C: '41.40', D: '26.90', E: '30.20' }
     },
     {
       item: 'WI-30',
-      dimensions: { A: '82.60', B: '25.40', C: '43.90', D: '35.10', E: '49.10'}
+      dimensions: { A: '82.60', B: '25.40', C: '43.90', D: '35.10', E: '49.10' }
     },
     {
       item: 'WI-33',
-      dimensions: { A: '64.80', B: '19.00', C: '35.00', D: '22.90', E: '34.30'}
+      dimensions: { A: '64.80', B: '19.00', C: '35.00', D: '22.90', E: '34.30' }
     },
     {
       item: 'WI-48',
-      dimensions: { A: '69.90', B: '15.90', C: '-', D: '-', E: '31.80'}
+      dimensions: { A: '69.90', B: '15.90', C: '-', D: '-', E: '31.80' }
     },
     {
       item: 'WI-50',
-      dimensions: { A: '68.60', B: '19.80', C: '31.50', D: '17.80', E: '20.80'}
+      dimensions: { A: '68.60', B: '19.80', C: '31.50', D: '17.80', E: '20.80' }
     },
     {
       item: 'WI-65',
-      dimensions: { A: '68.60', B: '19.80', C: '33.00', D: '18.30', E: '23.60'}
+      dimensions: { A: '68.60', B: '19.80', C: '33.00', D: '18.30', E: '23.60' }
     },
     {
       item: 'WI-70',
-      dimensions: { A: '69.90', B: '16.80', C: '27.70', D: '28.20', E: '31.20'}
+      dimensions: { A: '69.90', B: '16.80', C: '27.70', D: '28.20', E: '31.20' }
     },
     {
       item: 'WI-90',
-      dimensions: { A: '82.60', B: '17.00', C: '31.80', D: '34.30', E: '42.00'}
+      dimensions: { A: '82.60', B: '17.00', C: '31.80', D: '34.30', E: '42.00' }
     },
     {
       item: 'WI-124',
-      dimensions: { A: '103.10', B: '16.30', C: '32.30', D: '37.10', E: '45.00'}
+      dimensions: { A: '103.10', B: '16.30', C: '32.30', D: '37.10', E: '45.00' }
     },
     {
       item: 'WI-125',
-      dimensions: { A: '103.10', B: '19.60', C: '31.80', D: '37.10', E: '45.00'}
+      dimensions: { A: '103.10', B: '19.60', C: '31.80', D: '37.10', E: '45.00' }
     },
     {
       item: 'WI-126',
-      dimensions: { A: '76.20', B: '16.80', C: '30.20', D: '25.10', E: '30.00'}
+      dimensions: { A: '76.20', B: '16.80', C: '30.20', D: '25.10', E: '30.00' }
     },
     {
       item: 'WI-127',
-      dimensions: { A: '63.50', B: '15.70', C: '-', D: '-', E: '25.40'}
+      dimensions: { A: '63.50', B: '15.70', C: '-', D: '-', E: '25.40' }
     },
     {
       item: 'WI-128',
-      dimensions: { A: '57.20', B: '15.70', C: '-', D: '-', E: '22.90'}
+      dimensions: { A: '57.20', B: '15.70', C: '-', D: '-', E: '22.90' }
     }
   ];
 
@@ -91,8 +91,8 @@ const TwoPieceMounts = () => {
       <div className="bg-white shadow-sm border-b border-neutral-200">
         <div className="container-max">
           <div className="flex items-center justify-between py-6">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
@@ -129,9 +129,9 @@ const TwoPieceMounts = () => {
           >
             <motion.div variants={fadeInUp} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={miscellaneousImage} 
-                  alt="Two Piece Mount" 
+                <img
+                  src={miscellaneousImage}
+                  alt="Two Piece Mount"
                   className="w-full h-full object-cover"
                 />
               </div>

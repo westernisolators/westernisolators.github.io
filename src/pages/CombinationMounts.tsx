@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import combinationType1 from '../assets/combination_type1.png';
-import combinationType2 from '../assets/combination_type2.png';
-import combinationType3 from '../assets/combination_type3.png';
+import combinationType1 from '../assets/combination_type1.webp';
+import combinationType2 from '../assets/combination_type2.webp';
+import combinationType3 from '../assets/combination_type3.webp';
 
 interface MountData {
   item: string;
@@ -61,7 +61,7 @@ const CombinationMounts = () => {
     { item: 'WI-2665', type: '2', dimensions: { A: '2.98', B: '0.64', C: '1.8', D: '0.81', E: '1.12', F: '1.8', plateID: '1.8', plateThickness: '0.93' } },
     // 2680 item
     { item: 'WI-2680', type: '2', dimensions: { A: '3.5', B: '0.94', C: '2.23', D: '1.04', E: '1.44', F: '2.26', plateID: '2.26', plateThickness: '1' } },
-    ];
+  ];
 
   return (
     <div className="min-h-screen bg-neutral-50 pt-20">
@@ -69,8 +69,8 @@ const CombinationMounts = () => {
       <div className="bg-white shadow-sm border-b border-neutral-200">
         <div className="container-max">
           <div className="flex items-center justify-between py-6">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
@@ -93,7 +93,7 @@ const CombinationMounts = () => {
               Combination Mounts
             </h1>
             <p className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
-              Combination mounts are used when you cannot find the performance you need in one of the above types of vibration isolators. We customize our two-piece or three-piece mounts to optimize the vibration, providing our customers with a superior performing system. 
+              Combination mounts are used when you cannot find the performance you need in one of the above types of vibration isolators. We customize our two-piece or three-piece mounts to optimize the vibration, providing our customers with a superior performing system.
             </p>
           </motion.div>
 
@@ -107,8 +107,8 @@ const CombinationMounts = () => {
           >
             <motion.div variants={fadeInUp} className="bg-neutral-50 rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center bg-white">
-                <img 
-                  src={combinationType1} 
+                <img
+                  src={combinationType1}
                   alt="Type 1 Combination Mount"
                   className="max-h-full max-w-full object-contain p-4"
                 />
@@ -120,8 +120,8 @@ const CombinationMounts = () => {
 
             <motion.div variants={fadeInUp} className="bg-neutral-50 rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center bg-white">
-                <img 
-                  src={combinationType2} 
+                <img
+                  src={combinationType2}
                   alt="Type 2 Combination Mount"
                   className="max-h-full max-w-full object-contain p-4"
                 />
@@ -133,8 +133,8 @@ const CombinationMounts = () => {
 
             <motion.div variants={fadeInUp} className="bg-neutral-50 rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center bg-white">
-                <img 
-                  src={combinationType3} 
+                <img
+                  src={combinationType3}
                   alt="Type 3 Combination Mount"
                   className="max-h-full max-w-full object-contain p-4"
                 />

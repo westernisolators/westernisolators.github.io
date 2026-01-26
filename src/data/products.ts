@@ -1,8 +1,8 @@
-import onePieceMountImage from '../assets/one-piece_mount.png';
-import twoPieceMountImage from '../assets/two-piece_mount.png';
-import threePieceMountImage from '../assets/three-piece_mount.png';
-import combinationMountImage from '../assets/combination_mount.png';
-import miscellaneousMountImage from '../assets/miscellaneous_mount.png';
+import onePieceMountImage from '../assets/one-piece_mount.webp';
+import twoPieceMountImage from '../assets/two-piece_mount.webp';
+import threePieceMountImage from '../assets/three-piece_mount.webp';
+import combinationMountImage from '../assets/combination_mount.webp';
+import miscellaneousMountImage from '../assets/miscellaneous_mount.webp';
 
 export interface SimpleProduct {
   id: string;
@@ -36,7 +36,7 @@ export const products: SimpleProduct[] = [
     description: 'Innovative hybrid design combining multiple isolation technologies for exceptional performance in the most demanding environments.',
     image: combinationMountImage,
   },
-    {
+  {
     id: 'miscellaneous',
     name: 'Miscellaneous Mounts',
     description: 'Customized mounting solutions designed to accommodate a wide range of applications and custom requirements.',

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Layers, PenTool, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import rubberImage from '../assets/rubber_extrusion_category.png';
+import rubberImage from '../assets/rubber_extrusion_category.webp';
 
 const RubberExtrusion = () => {
     const fadeInUp = {

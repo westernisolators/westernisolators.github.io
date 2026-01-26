@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import brushesImage from '../assets/brushes_category.png';
+import brushesImage from '../assets/brushes_category.webp';
 
 const Brushes = () => {
     const fadeInUp = {

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import twoPieceImage from '../assets/two-piece.png';
+import twoPieceImage from '../assets/two-piece.webp';
 
 interface MountData {
   item: string;
@@ -97,8 +97,8 @@ const TwoPieceMounts = () => {
       <div className="bg-white shadow-sm border-b border-neutral-200">
         <div className="container-max">
           <div className="flex items-center justify-between py-6">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
@@ -135,9 +135,9 @@ const TwoPieceMounts = () => {
           >
             <motion.div variants={fadeInUp} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-80 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={twoPieceImage} 
-                  alt="Two Piece Mount" 
+                <img
+                  src={twoPieceImage}
+                  alt="Two Piece Mount"
                   className="w-full h-full object-cover"
                 />
               </div>
