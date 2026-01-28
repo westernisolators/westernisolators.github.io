@@ -17,7 +17,10 @@ import threePieceMount from '../assets/three-piece_mount.webp';
 import rubberDProfile from '../assets/rubber_extrusion_d_profile.webp';
 import rubberUChannel from '../assets/rubber_extrusion_u_channel.webp';
 import rubberGlazing from '../assets/rubber_extrusion_glazing.webp';
-import rubberPProfile from '../assets/rubber_extrusion_p_profile.webp';
+
+// Vibration Pads & Industrial Gaskets
+import vibrationPadsHero from '../assets/vibration_pads_hero.webp';
+import industrialGasketsHero from '../assets/industrial_gaskets_hero.webp';
 
 export interface Category {
     id: string;
@@ -65,8 +68,21 @@ export const categories: Category[] = [
         slideshowImages: [
             rubberDProfile,
             rubberUChannel,
-            rubberGlazing,
-            rubberPProfile
+            rubberGlazing
         ]
+    },
+    {
+        id: 'vibration-pads',
+        name: 'Vibration Pads & Anti-Vibration Products',
+        description: 'Engineered to absorb and isolate vibrations, protect machinery from shock, and reduce operational noise in industrial environments.',
+        image: vibrationPadsHero,
+        link: '/products/vibration-pads'
+    },
+    {
+        id: 'industrial-gaskets',
+        name: 'Industrial Gaskets & Seals',
+        description: 'Reliable sealing solutions for joints, flanges, machinery interfaces, and fluid or air systems in demanding environments.',
+        image: industrialGasketsHero,
+        link: '/products/industrial-gaskets'
     }
 ];

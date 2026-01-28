@@ -12,6 +12,8 @@ import MiscellaneousMounts from './pages/MiscellaneousMounts';
 import Isolators from './pages/Isolators';
 import Brushes from './pages/Brushes';
 import RubberExtrusion from './pages/RubberExtrusion';
+import VibrationPads from './pages/VibrationPads';
+import IndustrialGaskets from './pages/IndustrialGaskets';
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path="/products/brushes" element={<Brushes />} />
 
             <Route path="/products/rubber-extrusion" element={<RubberExtrusion />} />
+            <Route path="/products/vibration-pads" element={<VibrationPads />} />
+            <Route path="/products/industrial-gaskets" element={<IndustrialGaskets />} />
 
           </Routes>
         </motion.main>
