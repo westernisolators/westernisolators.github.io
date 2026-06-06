@@ -82,7 +82,7 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               {[
-                { icon: Phone, text: "+1(548)488-3102", color: "bg-blue-600", href: "tel:+15484883102" },
+                //{ icon: Phone, text: "+1(548)488-3102", color: "bg-blue-600", href: "tel:+15484883102" },
                 { icon: Mail, text: "info@westernisolators.com", color: "bg-emerald-600", href: "mailto:info@westernisolators.com" },
                 { icon: MapPin, text: "178 Shaded Creek Dr, Kitchener ON N2P0K7", color: "bg-purple-600", href: null }
               ].map((item, index) => (

@@ -571,7 +571,7 @@ const Home = () => {
                 <h3 className="text-title text-white mb-8">Contact Information</h3>
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, title: "Phone", detail: "+1(548)488-3102", href: "tel:+15484883102" },
+                    //{ icon: Phone, title: "Phone", detail: "+1(548)488-3102", href: "tel:+15484883102" },
                     { icon: Mail, title: "Email", detail: "info@westernisolators.com", href: "mailto:info@westernisolators.com" },
                     { icon: MapPin, title: "Address", detail: "178 Shaded Creek Dr, Kitchener ON N2P0K7", href: null }
                   ].map((item, index) => (
