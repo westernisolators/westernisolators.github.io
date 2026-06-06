@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
+import { Mail, /*Phone,*/ MapPin, Shield, Zap, Globe, Star, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
 import { categories } from '../data/categories';

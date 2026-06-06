@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import { Mail, /*Phone,*/MapPin, ArrowUp } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
